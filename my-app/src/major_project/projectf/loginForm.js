@@ -11,7 +11,7 @@ function LoginForm() {
     const submit =async (e) => {
         e.preventDefault();
 
-        let response= await fetch('http://52.15.151.201:5000/authdataLogin',{
+        let response= await fetch('http://localhost:5000/authdataLogin',{
             method:'post',
             headers:{'Content-Type':"application/json"},
             body:JSON.stringify({email,password})

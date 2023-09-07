@@ -12,7 +12,7 @@ function Signinf() {
     let response;
     e.preventDefault();
   
-     response = await fetch("http://52.15.151.201:5000/authdata", {
+     response = await fetch("http://localhost:5000/authdata", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),

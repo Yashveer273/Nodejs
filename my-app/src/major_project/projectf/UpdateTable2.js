@@ -15,7 +15,7 @@ const Update = () => {
     console.log(Name, Purches, category);
     try{
     let result = await fetch(
-      `http://52.15.151.201:5000/updatechatrData/${params.id}`,
+      `http://localhost:5000/updatechatrData/${params.id}`,
       {
         method: "put",
         body: JSON.stringify({ Name, Purches, category }),
@@ -42,7 +42,7 @@ Navigate("/Maindash/table2")
     console.log(params);
   
     let result = await fetch(
-      `http://52.15.151.201:5000/updateitemchartData/${params.id}`,{
+      `http://localhost:5000/updateitemchartData/${params.id}`,{
         headers: {
           "Content-Type": "Application/json",
           authorization: JSON.parse(localStorage.getItem("authentication")),

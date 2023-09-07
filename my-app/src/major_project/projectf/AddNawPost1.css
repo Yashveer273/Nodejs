@@ -1,0 +1,213 @@
+.main1{
+    position: absolute;
+    display: flex;
+    float: left;
+    width: 100%;
+
+    height: 632px;
+    top:17vh;
+ 
+
+}
+.mainchild1{
+    position: relative;
+    width: 389px;
+    height: 505px;
+    background:white;
+    border-radius: 9px;
+    padding: 0px 15px;
+    box-shadow: -1px 0px 20px -10px;
+}
+.mainchild2{
+    position: relative;
+    width: 749px;
+    height: 600px;
+    background: white;
+    border-radius: 9px;
+    left: 35px;
+    box-shadow: -1px 0px 20px -10px;
+}
+.input-field {
+    border: 1px solid #e1e5eb;  /* Set the default border size and color */
+    outline: none;  /* Remove the default outline when input is focused */
+  }
+  .input-field:focus {
+    border-color: skyblue;  /* Set the border color when input is focused */
+    border-width: 1px;  /* Set the border size when input is focused */
+  }
+  .dp{
+    position: relative;
+  
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    left: 30px;
+    margin: 0 0 20px;
+  }
+  .outerdp{
+    position: absolute;
+    height: 282px;
+    align-items: center;
+    justify-content: center;
+    width: 390px;
+    padding: 35px;
+    display: grid;
+    text-align: center;
+    border-bottom: 1px solid #e1e5eb;
+    margin: -16px;
+    margin-top: 0px;
+  }
+  .outer2{
+    position: relative;
+    /* display: flex; */
+    top: 297px;
+    margin: -15px;
+ 
+    padding: 9px;
+    border-bottom: 1px solid #e1e5eb;
+    text-align: center;
+   
+
+    /* /* width: 348px; */
+  }
+  .outer2>h2{
+    margin: 0px;
+
+    padding-right: 282px;
+  }
+  .outer2_1{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .outer3{
+    height: 166px;
+    position: relative;
+    top: 316px;
+    padding: 9px;
+    overflow: auto;
+
+ 
+   
+  }
+  .outer3>p{
+    font-size: 12px;
+    opacity: .5;
+
+  }
+  .outer3>h3{
+ 
+    opacity: .5;
+    font-weight: bold;
+    
+
+  }
+  /* progress {
+    height: 0.625rem;
+    font-size: .625rem;
+    line-height: .625rem;
+    background-color: #f5f5f6;
+    margin-top: 6px;
+    border-radius: 1.25rem;
+    box-shadow: inset 0 0.1rem 0.1rem rgba(90,97,105,.15);
+} */
+.progress-sm {
+  height: 0.3125rem;
+}
+.bg-primary {
+  background-color: #007bff!important;
+}
+.progress-bar {
+  height: 0.625rem;
+  line-height: .625rem;
+  color: #fff;
+  background-color: #007bff;
+  -webkit-transition: width .6s ease;
+  transition: width .6s ease;
+}
+.progress {
+ height: 0.4rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    box-shadow: inset 1px 2px 3px -1px;
+    width: 335px;
+}
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #007bff;
+  -webkit-transition: width .6s ease;
+  transition: width .6s ease;
+}
+
+
+
+/* ........................... */
+.outerName
+{
+height: 65px;
+ 
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+}
+.fistname{
+ 
+    width: 390px;
+
+}
+.lastname{
+  
+    width: 390px;
+  
+}
+.address{
+height:65px
+padding 0px 0px 16px;
+}
+.city {
+
+padding:0px -5px;
+}
+
+.state{
+width:250px;
+}
+
+.cmt{
+height:113px;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  padding: 4px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Styles for the focused state of the textarea */
+textarea:focus {
+  border-color: #007bff; /* Change to the desired border color */
+  outline: none; /* Remove the default focus outline */
+  /* Add any other styles you want for the focused state */
+}
+.input-field {
+  
+  border: 1px solid #ccc !important;
+  transition: border-color 0.3s ease !important; /* Adding a transition for a smooth effect */
+
+  /* Initial state */
+  border-color: #ccc !important;
+}
+
+.input-field:focus {
+  border-color: #007bff !important;  /* Change border color when focused */
+  outline: none !important; /* Remove default focus outline (optional) */
+}

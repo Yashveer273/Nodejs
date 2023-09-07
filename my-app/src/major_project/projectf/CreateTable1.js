@@ -14,7 +14,7 @@ const Yash3 = () => {
 
     // console.log(Name,price,category,company,_id)
     try {
-      let result = await fetch("http://52.15.151.201:5000/item", {
+      let result = await fetch("http://localhost:5000/item", {
         method: "post",
         headers: {
           "Content-Type": "application/json",

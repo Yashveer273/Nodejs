@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from "react";
 import {
   ResponsiveContainer,
@@ -12,7 +14,7 @@ import {
 
 // here i define chart 2
 
-const Chart2 = () => {
+const Chart_overview = () => {
   const [Name1, setName1] = useState("");
   const [Name, setName] = useState("");
   useEffect(() => {
@@ -48,35 +50,48 @@ const Chart2 = () => {
     }
   };
   return (
-    <div>
-      <ResponsiveContainer width={"90%"} aspect={2}>
+    <div style={{
+  
+      height: "110px",
+      position: "relative",
+      left: "-16px",
+      top: "-66px",
+      display: "inline-block"
+  }}>
+    <style>
+        {`
+          .recharts-surface {
+            border-radius: 14px;
+            overflow: hidden;
+          }
+        `}
+      </style>
+      <ResponsiveContainer width={"0%"} aspect={2} >
+
         <AreaChart
           data={Name}
-          width={30}
-          height={30}
-          margin={{ top: 1, left: 100, right: 7, bottom: 1 }}
+          width={10}
+          height={10}
+          margin={{ top: 1, left: 0, right: 0, bottom: 0 }}
+        
         >
-          <CartesianGrid strokeDasharray="3 3" />
-
-          <XAxis dataKey="Name" />
-
-          <YAxis dataKey="Purches" />
-          <Tooltip />
-
-          <Legend />
-          <Area
-            type="monotone"
-            data={Name1}
-            dataKey="Purches"
-            stroke="red"
-            fill="gray"
-          />
+          
           <Area
             type="monotone"
             data={Name}
+            dataKey="Purches"
+            stroke="#aee8f1"
+            fill="#f1fbfc"
+            dot={{r: 5}}
+          />
+          <Area
+            type="monotone"
+            // data={Name}
             dataKey="price"
-            stroke="red"
-            fill="gray"
+            stroke= "#a2e5ed"
+            fill="#d7e8ea"
+            strokeWidth={2}
+       
           />
         </AreaChart>
       </ResponsiveContainer>
@@ -84,4 +99,4 @@ const Chart2 = () => {
   );
 };
 
-export default Chart2;
+export default Chart_overview;

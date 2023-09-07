@@ -1,0 +1,33 @@
+.main{
+    position: relative;
+    display: flex;
+    width: 58%;
+    
+    top: 25px;
+    left: 277px;
+}
+.child1{
+    display: inline-block;
+width: 385px;
+height: 469px;
+position: relative;
+
+background: white;
+border-radius: 13px;
+margin-left: 31px;
+}
+/* display: inline-block;
+width: 385px;
+height: 469px;
+position: relative;
+left: 27px;
+background: white;
+border-radius: 13px; */
+.input-field {
+    border: 1px solid #e1e5eb;  /* Set the default border size and color */
+    outline: none;  /* Remove the default outline when input is focused */
+  }
+  .input-field:focus {
+    border-color: skyblue;  /* Set the border color when input is focused */
+    border-width: 1px;  /* Set the border size when input is focused */
+  }

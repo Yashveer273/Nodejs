@@ -6,14 +6,10 @@ import "react-circular-progressbar/dist/styles.css";
 import { UilTimes, } from "@iconscout/react-unicons";
 import Chart from "./chart";
 import Chart2 from "./Chart2";
-
+import Chart_overview from "./Char_overview";
 
 
                                                    // here i define card functioning 
-
-
-
-
 import Chart3 from "./Chart3";
 const Card = (props) => {
   // in this fun we getting data or chart as a props and sending this to expandecard and compactcard
@@ -32,29 +28,43 @@ const Card = (props) => {
 //  here i define what we see when car is small or not open 
 function CompactCard({ param, setExpanded }) {
   const Icon = param.png;
+  
+  
+    
+  
   return (
     <motion.div
       className="CompactCard"
       style={{
         background: param.color.backGround,
         boxShadow: param.color.boxShadow,
+        
       }}
       layoutId="expandableCard"
       onClick={setExpanded}
+      
     >
+      
       <div className="radialBar">
-        <CircularProgressbar
-          value={param.barValue}
-          text={`${param.barValue}%`}
-        />
+     
+         <h1 style={{
+              columnGap: "1px",
+              display: 
+              "flex"
+          }
+         }>  {param.barValue} </h1> 
+           
+
         <span>{param.title}</span>
       </div>
-      <div className="detail">
-        <Icon />
-        <span>${param.value}</span>
-        <span> Last 24 hours</span>
-      </div>
+   
+<div>
+  
+</div>
+      <Chart_overview/>
+
     </motion.div>
+   
   );
 }
 //  here i define what we see when card open or full size

@@ -1,0 +1,140 @@
+#a{
+  
+    width: 81%;
+    /* background: white; */
+    position: relative;
+    top: 100px !important;
+    height: 86vh;
+    float: right;
+}
+#b{
+    position: relative;
+    display: flex;
+    height: 437px;
+    margin-left: -18px;
+  
+
+}
+#c{
+    width: 280px;
+    height: 187px;
+    padding: 0px 0px;
+    margin: 0px 16px 24px;
+    box-shadow:-1px 0px 20px -10px;
+    background: #eeeff1; /* background: white; */
+}
+#d{
+        background-size: contain;
+    width: inherit;
+    height: inherit;
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+}
+.f{
+    background-size: cover;
+    width: inherit;
+    height: inherit;
+    background-repeat: no-repeat; 
+}
+#e{
+    background: white;
+    margin-left: auto;
+    width: 280px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 250px;
+    box-shadow:-1px 0px 20px -10px;
+}
+.body{
+    background:#bbbcbf;
+}
+.c{
+    width: 280px;
+    height: 187px;
+    padding: 0px 0px;
+    margin: 0px 16px 24px;
+    box-shadow:-1px 0px 20px -10px;
+    background: #eeeff1; /* background: white; */
+}
+.c1{
+    height: 262px;
+    display: flex;
+    padding: 0px -15px;
+
+}
+.c2{
+    width:590px;
+    height: 238px;
+   
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    box-shadow:-1px 0px 20px -10px;
+   margin: 27px;
+    margin-left: 0px;
+}
+.c3{
+    width: 624px;
+    height: 238px;
+    border: 1px solid;
+
+}
+.c1_2{
+    width: 180px;
+    height: 216px;
+    background-size: cover;
+    display: inline-block;
+    border-top-left-radius:  15px;
+border-bottom-left-radius: 15px;
+
+
+ 
+}
+.c2_2{
+    width: 180px;
+    height: 238px;
+    background-size: cover;
+    display: inline-block;
+    border-top-left-radius:  15px;
+border-bottom-left-radius: 15px;}
+.c1_3{
+    width: 414px;
+    padding: 16px;
+}
+.tag{
+    background-color: black;
+    display: inline-block;
+    height: 25px;
+    padding: 7px;
+    border-radius: 21px;
+    margin: 10px;
+    float: right;
+
+}
+.tag1{
+    color: white;
+    font-size: 11px;
+    margin-top: -3px  
+}
+.tag2{
+    background-color: black;
+    display: inline-block;
+    height: 25px;
+    padding: 7px;
+    border-radius: 21px;
+    margin: 10px;
+  
+
+}
+
+#d1{
+    background-size: cover;
+width: inherit;
+height: inherit;
+background-repeat: no-repeat;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+
+}

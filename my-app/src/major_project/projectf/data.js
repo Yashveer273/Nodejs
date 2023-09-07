@@ -19,7 +19,7 @@ import {
     
     {
       icon: UilUsersAlt,
-      
+      Link:"/text",
       heading: "Customers",
     },
     {
@@ -27,7 +27,21 @@ import {
       Link:"/Maindash/table2",
       heading: 'Sale Table'
     },
-   
+    {
+      icon: UilUsersAlt,
+      Link:"/TableDesign",
+      heading: "Table",
+    },
+    {
+      icon: UilUsersAlt,
+      Link:"/TextEditor",
+      heading: "Customers",
+    },
+    {
+      icon: UilUsersAlt,
+      Link:"/Profile",
+      heading: "Profile",
+    },
   ];
   
   

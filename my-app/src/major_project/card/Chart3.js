@@ -34,7 +34,7 @@ const Chart3 = () => {
 
   const getProduct = async () => {
     try {
-      let result = await fetch("http://52.15.151.201:5000/getitem", {
+      let result = await fetch("http://localhost:5000/getitem", {
         headers: {
           authorization: JSON.parse(localStorage.getItem("authentication")),
         },
@@ -49,7 +49,7 @@ const Chart3 = () => {
 
   const getProduct1 = async () => {
     try {
-      let result = await fetch("http://52.15.151.201:5000/getitemchart", {
+      let result = await fetch("http://localhost:5000/getitemchart", {
         headers: {
           authorization: JSON.parse(localStorage.getItem("authentication")),
         },

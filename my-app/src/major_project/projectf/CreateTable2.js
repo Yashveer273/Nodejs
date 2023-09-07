@@ -13,7 +13,7 @@ function Yash6() {
 
     // console.log(Name,price,category,company,_id)
  try{
-    let result = await fetch("http://52.15.151.201:5000/itemChart", {
+    let result = await fetch("http://localhost:5000/itemChart", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

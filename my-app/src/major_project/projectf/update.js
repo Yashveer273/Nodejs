@@ -19,7 +19,7 @@ const Yash5 = () => {
 try{
 
 
-    let result = await fetch(`http://52.15.151.201:5000/updateitem/${params.id}`, {
+    let result = await fetch(`http://localhost:5000/updateitem/${params.id}`, {
       method: "put",
       body: JSON.stringify({ Name, price, category, company }),
       headers: {
@@ -51,7 +51,7 @@ try{
   const getitemdetail = async () => {
 
     console.log(params);
-    let result = await fetch(`http://52.15.151.201:5000/updateitem/${params.id}`,{
+    let result = await fetch(`http://localhost:5000/updateitem/${params.id}`,{
       headers: {
         "Content-Type": "Application/json",
         authorization: JSON.parse(localStorage.getItem("authentication")),

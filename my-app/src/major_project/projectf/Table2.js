@@ -12,7 +12,7 @@ const ChartDataget = () => {
 
   const getProduct = async () => {
     try {
-      let result = await fetch("http://52.15.151.201:5000/getitemchart", {
+      let result = await fetch("http://localhost:5000/getitemchart", {
         headers: {
           authorization: JSON.parse(localStorage.getItem("authentication")),
         },
@@ -30,7 +30,7 @@ const ChartDataget = () => {
   const hendelerDelete = async (id) => {
     try {
       let result = await fetch(
-        `http://52.15.151.201:5000/deletechartitem/${id}`,
+        `http://localhost:5000/deletechartitem/${id}`,
         {
           method: "Delete",
           headers: {

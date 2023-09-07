@@ -16,7 +16,10 @@ import Desboard from './major_project/projectf/chartdesbord';
 import Maindash from './major_project/projectf/maindash';
 import LoginForm from './major_project/projectf/loginForm';
 import Chart2 from './major_project/card/Chart2';
-
+import Blog from './major_project/projectf/Blog';
+import Table1design from './major_project/projectf/Table1design';
+import Texteditor from './major_project/projectf/texteditor';
+import AddNewPost from './major_project/projectf/AddNewPost';
 function App() {
   return (  
     <div className="App">
@@ -26,7 +29,11 @@ function App() {
         
 
        <Routes>
+       <Route path="/TextEditor"element={<Texteditor/>}></Route>
+       <Route path="/Profile"element={<AddNewPost/>}></Route>
      
+       <Route path="/text"element={<Blog/>}></Route>
+       <Route path="/TableDesign"element={<Table1design/>}></Route>
 
 <Route path="/"element={<Signinf/>}></Route>
 <Route path="/Loginform"element={<LoginForm/>}></Route>
