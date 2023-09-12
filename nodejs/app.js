@@ -1,4 +1,5 @@
 
+
 require('dotenv').config()
 const express = require("express");
 const cors = require("cors");
@@ -11,6 +12,14 @@ const multer = require("multer");
 // app.use(express.urlencoded({ extended: true }));
 // const con = require("./config2");
 // const User = require("./database/User");
+
+// ............................................img upload required this................
+const fs = require('fs');
+const path = require('path');
+
+const ImageModel=require("./database/Cmageupload")
+// .....................................................................................
+
 const Curd= require("./database/curdmodel");//..........schema file
 const CurdChart =require("./database/CurdChart");//..........schema file
 const Auth = require("./database/auth");//...................schema file
@@ -199,10 +208,10 @@ app.post("/authdata", async (req, res) => {
   }
 });
 
-app.listen(PORT);
 
 
-//image upload apli
+// --------------------------------
+// image upload apli
 // var imgconfig = multer.diskStorage({
 //   destination: (req, file, callback) => {
 //     callback(null, "./uploads");
@@ -212,7 +221,59 @@ app.listen(PORT);
 //   },
 // });
 
-//filter
+
+
+// ........................................imp upload...........
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = './uploads'; // Specify your upload folder
+    fs.mkdirSync(uploadPath, { recursive: true });
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}_${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage });
+
+app.post('/api/upload', upload.fields([{ name: 'image1',name: 'image1' }, { name: 'image2' }, { name: 'image3' }, { name: 'image4' }]), async (req, res) => {
+  try {
+    const imageUrls = [];
+    const imageUrls1 = [];
+    // Extract file information and save to MongoDB
+    for (let i = 1; i <= 4; i++) {
+      if (req.files[`image${i}`]) {
+        const image = req.files[`image${i}`][0];
+      
+
+        const imageUrl = `/uploads/${image.filename}`;
+      
+        imageUrls.push(imageUrl);
+        
+
+        
+        // Save image information to MongoDB
+        await ImageModel.create({ img1: imageUrl   });
+      }
+    }
+
+    res.status(200).json({ message: 'Images uploaded successfully', imageUrls });
+    // res.status(200).json({ message: 'Images uploaded successfully', imageUrls1 });
+
+  } catch (error) {
+    console.error('Error uploading images:', error);
+    res.status(500).json({ error: 'Error uploading images' });
+  }
+});
+
+
+
+app.listen(PORT);
+
+
+
+// //filter
 
 // const isImage = (req, file, callback) => {
 //   if (file.mimetype.startwith("image")) {
@@ -225,7 +286,7 @@ app.listen(PORT);
 //   storage: imgconfig,
 //   filfilter: isImage,
 // });
-//vendor data
+// //vendor data
 // app.post("/vendorData", upload.single("photo"), (req, res) => {
 //   console.log(req.body);
 //   const { userName } = req.body;
@@ -242,7 +303,7 @@ app.listen(PORT);
 //   const Pin_code = parseInt(pin_code);
 
 //   const quantity = parseInt(Quantity);
-//   const { filename } = req.file;
+//   const { filename } = req.file;-------------------------------------path
 //   console.log(
 //     userName,
 //     "ffff",
@@ -295,6 +356,9 @@ app.listen(PORT);
 //     console.log("eerro ago");
 //   }
 // });
+
+
+
 
 //Signup API
 // app.post("/register", async (req, resp) => {
@@ -601,3 +665,11 @@ app.listen(PORT);
 // });
 
 // app.listen(5000);
+
+
+
+
+
+// mongoose.connect('mongodb://localhost:27017/yourdb', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
