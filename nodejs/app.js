@@ -237,26 +237,53 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post('/api/upload', upload.fields([{ name: 'image1',name: 'image1' }, { name: 'image2' }, { name: 'image3' }, { name: 'image4' }]), async (req, res) => {
+app.post('/api/upload', upload.fields([{ name: 'image1' }, { name: 'image2' }, { name: 'image3' }, { name: 'image4' }]), async (req, res) => {
   try {
     const imageUrls = [];
-    const imageUrls1 = [];
+
     // Extract file information and save to MongoDB
     for (let i = 1; i <= 4; i++) {
       if (req.files[`image${i}`]) {
         const image = req.files[`image${i}`][0];
-      
-
         const imageUrl = `/uploads/${image.filename}`;
-      
-        imageUrls.push(imageUrl);
-        
-
-        
-        // Save image information to MongoDB
-        await ImageModel.create({ img1: imageUrl   });
+        const IMGNAME = image.fieldname;
+    
+        // Use square brackets to define the key dynamically
+        const imageObject = {};
+        imageObject[IMGNAME] = imageUrl;
+    
+        imageUrls.push(imageObject);
       }
-    }
+    }  
+
+     
+        // Save image information to MongoDB
+      
+        await ImageModel.create({images:imageUrls});// expected o/p->{imgames: [
+          //   {
+          //     image2: '/uploads/1694519996297_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
+          //   },
+          //   {
+          //     image3: '/uploads/1694519996348_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
+          //   },
+          //   {
+          //     image4: '/uploads/1694519996375_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
+          //   }
+          // ]}
+    
+    
+    console.log(imageUrls)// o/p-MongoDb connected
+    // [
+    //   {
+    //     image2: '/uploads/1694519996297_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
+    //   },
+    //   {
+    //     image3: '/uploads/1694519996348_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
+    //   },
+    //   {
+    //     image4: '/uploads/1694519996375_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
+    //   }
+    // ]
 
     res.status(200).json({ message: 'Images uploaded successfully', imageUrls });
     // res.status(200).json({ message: 'Images uploaded successfully', imageUrls1 });
