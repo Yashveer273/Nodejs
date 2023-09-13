@@ -1,5 +1,4 @@
 
-
 require('dotenv').config()
 const express = require("express");
 const cors = require("cors");
@@ -7,17 +6,19 @@ const moment = require("moment");
 const bodyParser = require("body-parser");
 const morgen = require("morgan");
 const dotenv = require("dotenv");
-require("./config1");//----------connection file 
-const multer = require("multer");
+
+
 // app.use(express.urlencoded({ extended: true }));
 // const con = require("./config2");
 // const User = require("./database/User");
 
 // ............................................img upload required this................
+require("./config1");//----------connection file 
+const multer = require("multer");
 const fs = require('fs');
 const path = require('path');
 
-const ImageModel=require("./database/Cmageupload")
+const ImageModel=require("./database/Imageupload")//...........schema 
 // .....................................................................................
 
 const Curd= require("./database/curdmodel");//..........schema file
@@ -223,7 +224,7 @@ app.post("/authdata", async (req, res) => {
 
 
 
-// ........................................imp upload...........
+//........................................imp upload........................
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = './uploads'; // Specify your upload folder
@@ -236,58 +237,32 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
-app.post('/api/upload', upload.fields([{ name: 'image1' }, { name: 'image2' }, { name: 'image3' }, { name: 'image4' }]), async (req, res) => {
+app.post('/api/upload', upload.array('images',5),  (req, res) => {
   try {
-    const imageUrls = [];
-
     // Extract file information and save to MongoDB
-    for (let i = 1; i <= 4; i++) {
-      if (req.files[`image${i}`]) {
-        const image = req.files[`image${i}`][0];
-        const imageUrl = `/uploads/${image.filename}`;
-        const IMGNAME = image.fieldname;
-    
-        // Use square brackets to define the key dynamically
-        const imageObject = {};
-        imageObject[IMGNAME] = imageUrl;
-    
-        imageUrls.push(imageObject);
+    const images = req.files;
+    const imageUrls = [];
+    const imageObject = {};
+  
+
+    imageUrls.push(imageObject);
+    // Create an array of image data to store in MongoDB
+    const image = images.map((file) => {
+        return (
+          imageUrls.push({
+            filename: file.filename,
+            path: file.path,
+          })
+        )
+             
+        
+    }); 
+    ImageModel.insertMany({Img: imageUrls}, (err) => {
+      if (err) {
+          return res.status(500).send(err);
       }
-    }  
-
-     
-        // Save image information to MongoDB
-      
-        await ImageModel.create({images:imageUrls});// expected o/p->{imgames: [
-          //   {
-          //     image2: '/uploads/1694519996297_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
-          //   },
-          //   {
-          //     image3: '/uploads/1694519996348_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
-          //   },
-          //   {
-          //     image4: '/uploads/1694519996375_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
-          //   }
-          // ]}
-    
-    
-    console.log(imageUrls)// o/p-MongoDb connected
-    // [
-    //   {
-    //     image2: '/uploads/1694519996297_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
-    //   },
-    //   {
-    //     image3: '/uploads/1694519996348_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
-    //   },
-    //   {
-    //     image4: '/uploads/1694519996375_aleksandra-tanasiienko-0y6eMd8vevA-unsplash.png'
-    //   }
-    // ]
-
-    res.status(200).json({ message: 'Images uploaded successfully', imageUrls });
-    // res.status(200).json({ message: 'Images uploaded successfully', imageUrls1 });
-
+      res.status(200).json({ message: 'Images uploaded successfully' });
+  });  
   } catch (error) {
     console.error('Error uploading images:', error);
     res.status(500).json({ error: 'Error uploading images' });
@@ -295,6 +270,8 @@ app.post('/api/upload', upload.fields([{ name: 'image1' }, { name: 'image2' }, {
 });
 
 
+
+// ........................................................................................../
 
 app.listen(PORT);
 
